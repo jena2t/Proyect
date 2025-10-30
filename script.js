@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const pages = document.querySelectorAll('.page');
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const sidebar = document.querySelector('.sidebar');
+    const themeToggle = document.getElementById('themeToggle');
     
     // Cambiar página al hacer clic en un elemento del menú
     menuItems.forEach(item => {
@@ -38,8 +39,19 @@ document.addEventListener('DOMContentLoaded', function() {
         sidebar.classList.toggle('active');
     });
     
+    // Toggle tema oscuro/claro
+    themeToggle.addEventListener('change', function() {
+        if (this.checked) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.querySelector('.theme-label').textContent = 'Modo Claro';
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+            document.querySelector('.theme-label').textContent = 'Modo Oscuro';
+        }
+    });
+    
     // Efectos 3D en hover para elementos interactivos
-    const interactiveElements = document.querySelectorAll('.menu-item, .project-card, .stat-card, .weather-card');
+    const interactiveElements = document.querySelectorAll('.menu-item, .stat-card-large, .product-card, .game-btn, .ui-btn, .day-item, .location-item');
     
     interactiveElements.forEach(element => {
         element.addEventListener('mouseenter', function() {
@@ -53,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Animación de partículas adicional
+    // Animación de partículas para el fondo
     function createParticle() {
         const particle = document.createElement('div');
         particle.classList.add('particle');
@@ -72,18 +84,15 @@ document.addEventListener('DOMContentLoaded', function() {
         particle.style.top = `${posY}%`;
         particle.style.animationDelay = `${Math.random() * 5}s`;
         
-        // Añadir al contenedor de partículas
-        const particlesContainer = document.querySelector('.particles-container');
-        if (particlesContainer) {
-            particlesContainer.appendChild(particle);
-            
-            // Remover después de la animación
-            setTimeout(() => {
-                if (particle.parentNode) {
-                    particle.parentNode.removeChild(particle);
-                }
-            }, 6000);
-        }
+        // Añadir al body
+        document.body.appendChild(particle);
+        
+        // Remover después de la animación
+        setTimeout(() => {
+            if (particle.parentNode) {
+                particle.parentNode.removeChild(particle);
+            }
+        }, 6000);
     }
     
     // Crear partículas periódicamente
@@ -107,31 +116,51 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.style.backgroundPosition = `${50 + moveX}% ${50 + moveY}%`;
     });
     
-    // Actualizar hora en la tarjeta del clima (simulación)
-    function updateWeatherTime() {
-        const now = new Date();
-        const timeString = now.toLocaleTimeString('es-ES', { 
-            hour: '2-digit', 
-            minute: '2-digit' 
+    // Simular cambio de días en el pronóstico del tiempo
+    const dayItems = document.querySelectorAll('.day-item');
+    dayItems.forEach(day => {
+        day.addEventListener('click', function() {
+            dayItems.forEach(d => d.classList.remove('active'));
+            this.classList.add('active');
         });
+    });
+    
+    // Actualizar progreso de proyectos
+    function updateProgress() {
+        const activeProjects = document.querySelectorAll('.menu-item').length;
+        const totalProjects = 30;
+        const progress = (activeProjects / totalProjects) * 100;
         
-        // Actualizar elemento si existe
-        const timeElement = document.querySelector('.weather-time');
-        if (!timeElement) {
-            // Crear elemento si no existe
-            const weatherDetails = document.querySelector('.weather-details');
-            if (weatherDetails) {
-                const timeElement = document.createElement('p');
-                timeElement.classList.add('weather-time');
-                timeElement.textContent = `Actualizado: ${timeString}`;
-                weatherDetails.appendChild(timeElement);
-            }
-        } else {
-            timeElement.textContent = `Actualizado: ${timeString}`;
-        }
+        document.querySelector('.progress-fill').style.width = `${progress}%`;
+        document.querySelector('.progress-text').textContent = `Progreso: ${activeProjects} de ${totalProjects} proyectos`;
+        document.querySelector('.projects-count').textContent = `${activeProjects}/${totalProjects}`;
     }
     
-    // Actualizar cada minuto
-    setInterval(updateWeatherTime, 60000);
-    updateWeatherTime(); // Llamada inicial
+    // Inicializar
+    updateProgress();
+    
+    // Añadir estilos para partículas
+    const style = document.createElement('style');
+    style.textContent = `
+        .particle {
+            position: fixed;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        @keyframes float {
+            0%, 100% { 
+                transform: translateY(0) translateX(0); 
+                opacity: 0;
+            }
+            50% { 
+                transform: translateY(-20px) translateX(10px); 
+                opacity: 1;
+            }
+        }
+    `;
+    document.head.appendChild(style);
 });
