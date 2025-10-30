@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Glassmorphism 3D</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <h2>Dashboard</h2>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="menu-item active" data-page="home">
+                    <div class="menu-icon">🏠</div>
+                    <span class="menu-text">Inicio</span>
+                    <div class="active-indicator"></div>
+                </li>
+                <li class="menu-item" data-page="projects">
+                    <div class="menu-icon">📦</div>
+                    <span class="menu-text">Proyectos</span>
+                    <div class="active-indicator"></div>
+                </li>
+                <li class="menu-item" data-page="stats">
+                    <div class="menu-icon">📊</div>
+                    <span class="menu-text">Estadísticas</span>
+                    <div class="active-indicator"></div>
+                </li>
+                <li class="menu-item" data-page="settings">
+                    <div class="menu-icon">⚙️</div>
+                    <span class="menu-text">Ajustes</span>
+                    <div class="active-indicator"></div>
+                </li>
+                <li class="menu-item" data-page="profile">
+                    <div class="menu-icon">👤</div>
+                    <span class="menu-text">Perfil</span>
+                    <div class="active-indicator"></div>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Home Page -->
+            <div class="page active" id="home-page">
+                <h1 class="main-title">30 PROYECTOS DE HTML, CSS Y JS</h1>
+                <div class="weather-card">
+                    <div class="weather-info">
+                        <div class="temperature">10°C</div>
+                        <div class="weather-icon">☀️</div>
+                    </div>
+                    <div class="weather-details">
+                        <p>Soleado</p>
+                        <p>Humedad: 45%</p>
+                    </div>
+                    <div class="particles-container">
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                        <div class="particle"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projects Page -->
+            <div class="page" id="projects-page">
+                <h2 class="page-title">Mis Proyectos</h2>
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <h3>Dashboard Glassmorphism</h3>
+                        <p>Interfaz moderna con efectos 3D y glassmorphism</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>App de Tareas</h3>
+                        <p>Gestión de tareas con drag & drop</p>
+                    </div>
+                    <div class="project-card">
+                        <h3>Calculadora Científica</h3>
+                        <p>Calculadora con funciones avanzadas</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Statistics Page -->
+            <div class="page" id="stats-page">
+                <h2 class="page-title">Estadísticas</h2>
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <h3>Proyectos Completados</h3>
+                        <div class="stat-value">24</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>En Progreso</h3>
+                        <div class="stat-value">6</div>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Líneas de Código</h3>
+                        <div class="stat-value">15,842</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Page -->
+            <div class="page" id="settings-page">
+                <h2 class="page-title">Ajustes</h2>
+                <div class="settings-container">
+                    <div class="setting-item">
+                        <label>Tema</label>
+                        <select>
+                            <option>Claro</option>
+                            <option>Oscuro</option>
+                            <option>Automático</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Idioma</label>
+                        <select>
+                            <option>Español</option>
+                            <option>Inglés</option>
+                            <option>Francés</option>
+                        </select>
+                    </div>
+                    <div class="setting-item">
+                        <label>Notificaciones</label>
+                        <input type="checkbox" checked>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Profile Page -->
+            <div class="page" id="profile-page">
+                <h2 class="page-title">Perfil</h2>
+                <div class="profile-container">
+                    <div class="profile-avatar">👤</div>
+                    <div class="profile-info">
+                        <h3>Usuario Demo</h3>
+                        <p>Desarrollador Frontend</p>
+                        <p>Miembro desde: Enero 2024</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
