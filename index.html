@@ -12,32 +12,33 @@
         <!-- Sidebar -->
         <nav class="sidebar">
             <div class="sidebar-header">
-                <h2>Dashboard</h2>
+                <h2>Proyectos</h2>
+                <div class="projects-count">5/30</div>
             </div>
             <ul class="sidebar-menu">
-                <li class="menu-item active" data-page="home">
-                    <div class="menu-icon">🏠</div>
-                    <span class="menu-text">Inicio</span>
+                <li class="menu-item active" data-page="project1">
+                    <div class="menu-icon">🌤️</div>
+                    <span class="menu-text">Clima App</span>
                     <div class="active-indicator"></div>
                 </li>
-                <li class="menu-item" data-page="projects">
-                    <div class="menu-icon">📦</div>
-                    <span class="menu-text">Proyectos</span>
-                    <div class="active-indicator"></div>
-                </li>
-                <li class="menu-item" data-page="stats">
+                <li class="menu-item" data-page="project2">
                     <div class="menu-icon">📊</div>
-                    <span class="menu-text">Estadísticas</span>
+                    <span class="menu-text">Dashboard Stats</span>
                     <div class="active-indicator"></div>
                 </li>
-                <li class="menu-item" data-page="settings">
-                    <div class="menu-icon">⚙️</div>
-                    <span class="menu-text">Ajustes</span>
+                <li class="menu-item" data-page="project3">
+                    <div class="menu-icon">🛒</div>
+                    <span class="menu-text">E-commerce</span>
                     <div class="active-indicator"></div>
                 </li>
-                <li class="menu-item" data-page="profile">
-                    <div class="menu-icon">👤</div>
-                    <span class="menu-text">Perfil</span>
+                <li class="menu-item" data-page="project4">
+                    <div class="menu-icon">🎮</div>
+                    <span class="menu-text">Game App</span>
+                    <div class="active-indicator"></div>
+                </li>
+                <li class="menu-item" data-page="project5">
+                    <div class="menu-icon">📱</div>
+                    <span class="menu-text">Mobile UI</span>
                     <div class="active-indicator"></div>
                 </li>
             </ul>
@@ -45,102 +46,160 @@
 
         <!-- Main Content -->
         <main class="main-content">
-            <!-- Home Page -->
-            <div class="page active" id="home-page">
-                <h1 class="main-title">30 PROYECTOS DE HTML, CSS Y JS</h1>
-                <div class="weather-card">
-                    <div class="weather-info">
-                        <div class="temperature">10°C</div>
-                        <div class="weather-icon">☀️</div>
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="top-bar-left">
+                    <div class="progress-info">
+                        <span class="progress-text">Progreso: 5 de 30 proyectos</span>
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 16.66%"></div>
+                        </div>
                     </div>
-                    <div class="weather-details">
-                        <p>Soleado</p>
-                        <p>Humedad: 45%</p>
+                </div>
+                <div class="top-bar-right">
+                    <div class="theme-toggle">
+                        <span class="theme-label">Modo Oscuro</span>
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggle">
+                            <span class="slider"></span>
+                        </label>
                     </div>
-                    <div class="particles-container">
-                        <div class="particle"></div>
-                        <div class="particle"></div>
-                        <div class="particle"></div>
-                        <div class="particle"></div>
-                        <div class="particle"></div>
+                    <div class="user-profile">
+                        <div class="user-avatar">👤</div>
+                        <span class="user-name">Usuario Demo</span>
                     </div>
                 </div>
             </div>
 
-            <!-- Projects Page -->
-            <div class="page" id="projects-page">
-                <h2 class="page-title">Mis Proyectos</h2>
-                <div class="projects-grid">
-                    <div class="project-card">
-                        <h3>Dashboard Glassmorphism</h3>
-                        <p>Interfaz moderna con efectos 3D y glassmorphism</p>
+            <!-- Project 1 - Weather App -->
+            <div class="page active" id="project1-page">
+                <div class="weather-container">
+                    <div class="current-weather">
+                        <div class="weather-main">
+                            <div class="temperature">10°C</div>
+                            <div class="weather-icon">⛅</div>
+                        </div>
+                        <div class="weather-locations">
+                            <div class="location-item">
+                                <span class="location-name">Control Jakarta</span>
+                            </div>
+                            <div class="location-item">
+                                <span class="location-name">Nigeria Jakarta</span>
+                            </div>
+                            <div class="location-item">
+                                <span class="location-name">Mardi Dakar</span>
+                            </div>
+                        </div>
                     </div>
-                    <div class="project-card">
-                        <h3>App de Tareas</h3>
-                        <p>Gestión de tareas con drag & drop</p>
+
+                    <div class="weather-divider"></div>
+
+                    <div class="weather-forecast">
+                        <h3 class="forecast-title">Strom with Heavy Rain</h3>
+                        <p class="forecast-description">
+                            Partly cloudy with occasional snow showers. High around 50°F.<br>
+                            Wire! From the east T1 to Z1 mph. Snow charcoal = 40%, with rainfall expected to be less than an inch.
+                        </p>
                     </div>
-                    <div class="project-card">
-                        <h3>Calculadora Científica</h3>
-                        <p>Calculadora con funciones avanzadas</p>
+
+                    <div class="weather-divider"></div>
+
+                    <div class="week-forecast">
+                        <div class="day-item">Sunday</div>
+                        <div class="day-item">Monday</div>
+                        <div class="day-item active">Tuesday</div>
+                        <div class="day-item">Wednesday</div>
+                        <div class="day-item">Thursday</div>
+                        <div class="day-item">Friday</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Statistics Page -->
-            <div class="page" id="stats-page">
-                <h2 class="page-title">Estadísticas</h2>
-                <div class="stats-container">
-                    <div class="stat-card">
-                        <h3>Proyectos Completados</h3>
-                        <div class="stat-value">24</div>
+            <!-- Project 2 - Dashboard Stats -->
+            <div class="page" id="project2-page">
+                <h2 class="page-title">Dashboard Stats</h2>
+                <div class="stats-grid">
+                    <div class="stat-card-large">
+                        <h3>Usuarios Activos</h3>
+                        <div class="stat-value">2,847</div>
+                        <div class="stat-trend positive">+12.5%</div>
                     </div>
-                    <div class="stat-card">
-                        <h3>En Progreso</h3>
-                        <div class="stat-value">6</div>
+                    <div class="stat-card-large">
+                        <h3>Ingresos</h3>
+                        <div class="stat-value">$24,589</div>
+                        <div class="stat-trend positive">+8.3%</div>
                     </div>
-                    <div class="stat-card">
-                        <h3>Líneas de Código</h3>
-                        <div class="stat-value">15,842</div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Settings Page -->
-            <div class="page" id="settings-page">
-                <h2 class="page-title">Ajustes</h2>
-                <div class="settings-container">
-                    <div class="setting-item">
-                        <label>Tema</label>
-                        <select>
-                            <option>Claro</option>
-                            <option>Oscuro</option>
-                            <option>Automático</option>
-                        </select>
-                    </div>
-                    <div class="setting-item">
-                        <label>Idioma</label>
-                        <select>
-                            <option>Español</option>
-                            <option>Inglés</option>
-                            <option>Francés</option>
-                        </select>
-                    </div>
-                    <div class="setting-item">
-                        <label>Notificaciones</label>
-                        <input type="checkbox" checked>
+                    <div class="stat-card-large">
+                        <h3>Conversión</h3>
+                        <div class="stat-value">4.8%</div>
+                        <div class="stat-trend negative">-2.1%</div>
                     </div>
                 </div>
             </div>
 
-            <!-- Profile Page -->
-            <div class="page" id="profile-page">
-                <h2 class="page-title">Perfil</h2>
-                <div class="profile-container">
-                    <div class="profile-avatar">👤</div>
-                    <div class="profile-info">
-                        <h3>Usuario Demo</h3>
-                        <p>Desarrollador Frontend</p>
-                        <p>Miembro desde: Enero 2024</p>
+            <!-- Project 3 - E-commerce -->
+            <div class="page" id="project3-page">
+                <h2 class="page-title">E-commerce Platform</h2>
+                <div class="products-grid">
+                    <div class="product-card">
+                        <div class="product-image">🛍️</div>
+                        <h3>Producto Premium</h3>
+                        <p>$49.99</p>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">📦</div>
+                        <h3>Basic Package</h3>
+                        <p>$19.99</p>
+                    </div>
+                    <div class="product-card">
+                        <div class="product-image">🎁</div>
+                        <h3>Special Edition</h3>
+                        <p>$79.99</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 4 - Game App -->
+            <div class="page" id="project4-page">
+                <h2 class="page-title">Game App</h2>
+                <div class="game-container">
+                    <div class="game-stats">
+                        <div class="game-stat">
+                            <span>Puntuación</span>
+                            <strong>2,450</strong>
+                        </div>
+                        <div class="game-stat">
+                            <span>Nivel</span>
+                            <strong>15</strong>
+                        </div>
+                        <div class="game-stat">
+                            <span>Vidas</span>
+                            <strong>3</strong>
+                        </div>
+                    </div>
+                    <div class="game-controls">
+                        <button class="game-btn">Jugar</button>
+                        <button class="game-btn">Pausa</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 5 - Mobile UI -->
+            <div class="page" id="project5-page">
+                <h2 class="page-title">Mobile UI Design</h2>
+                <div class="ui-showcase">
+                    <div class="ui-element">
+                        <h3>Botones</h3>
+                        <div class="ui-buttons">
+                            <button class="ui-btn primary">Primario</button>
+                            <button class="ui-btn secondary">Secundario</button>
+                        </div>
+                    </div>
+                    <div class="ui-element">
+                        <h3>Tarjetas</h3>
+                        <div class="ui-card">
+                            <p>Ejemplo de tarjeta UI</p>
+                        </div>
                     </div>
                 </div>
             </div>
