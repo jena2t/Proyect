@@ -993,3 +993,46 @@ footer {
         transition-duration: 0.01ms !important;
     }
 }
+
+/* Estilos para el resumen de reportes */
+.report-summary {
+    margin: 25px 0;
+}
+
+.report-summary .stat-cards {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.report-summary .stat-card {
+    padding: 20px;
+}
+
+.report-summary .stat-card h3 {
+    font-size: 14px;
+    margin-bottom: 8px;
+}
+
+.report-summary .stat-card p {
+    font-size: 24px;
+}
+
+/* Mejoras adicionales para minimalismo */
+.module {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.8);
+    box-shadow: 0 5px 20px rgba(108, 122, 137, 0.08);
+}
+
+.form-control {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(108, 122, 137, 0.1);
+    box-shadow: 0 2px 5px rgba(108, 122, 137, 0.05);
+}
+
+.btn {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(108, 122, 137, 0.1);
+    box-shadow: 0 2px 5px rgba(108, 122, 137, 0.05);
+}
