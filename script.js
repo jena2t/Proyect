@@ -1235,53 +1235,53 @@ class InventorySystem {
         });
     }
     
-    // Actualizar resumen del reporte
-    updateReportSummary(reportType, startDate, endDate) {
-        let totalProducts = 0;
-        let totalValue = 0;
-        let totalMovements = 0;
-        
-        switch (reportType) {
-            case 'inventory':
-                totalProducts = this.data.products.length;
-                totalValue = this.data.products.reduce((sum, product) => sum + (product.stock * product.cost), 0);
-                totalMovements = this.data.entries.length + this.data.dispatches.length + this.data.adjustments.length;
-                break;
-                
-            case 'movements':
-                totalProducts = this.data.products.length;
-                totalValue = this.data.products.reduce((sum, product) => sum + (product.stock * product.cost), 0);
-                
-                // Filtrar movimientos por fecha si es necesario
-                let movements = [...this.data.entries, ...this.data.dispatches, ...this.data.adjustments];
-                if (startDate && endDate) {
-                    movements = movements.filter(movement => {
-                        const movementDate = new Date(movement.date);
-                        const start = new Date(startDate);
-                        const end = new Date(endDate);
-                        return movementDate >= start && movementDate <= end;
-                    });
-                }
-                totalMovements = movements.length;
-                break;
-                
-            case 'low-stock':
-                const lowStockProducts = this.data.products.filter(product => product.stock <= 10);
-                totalProducts = lowStockProducts.length;
-                totalValue = lowStockProducts.reduce((sum, product) => sum + (product.stock * product.cost), 0);
-                totalMovements = 0; // No aplica para este reporte
-                break;
-                
-            default:
-                totalProducts = this.data.products.length;
-                totalValue = this.data.products.reduce((sum, product) => sum + (product.stock * product.cost), 0);
-                totalMovements = this.data.entries.length + this.data.dispatches.length;
-        }
-        
-        document.getElementById('report-total-products').textContent = totalProducts;
-        document.getElementById('report-total-value').textContent = `$${totalValue.toFixed(2)}`;
-        document.getElementById('report-total-movements').textContent = totalMovements;
+   // Actualizar resumen del reporte
+updateReportSummary(reportType, startDate, endDate) {
+    let totalProducts = 0;
+    let totalValue = 0;
+    let totalMovements = 0;
+    
+    switch (reportType) {
+        case 'inventory':
+            totalProducts = this.data.products.length;
+            totalValue = this.data.products.reduce((sum, product) => sum + (product.stock * product.cost), 0);
+            totalMovements = this.data.entries.length + this.data.dispatches.length + this.data.adjustments.length;
+            break;
+            
+        case 'movements':
+            totalProducts = this.data.products.length;
+            totalValue = this.data.products.reduce((sum, product) => sum + (product.stock * product.cost), 0);
+            
+            // Filtrar movimientos por fecha si es necesario
+            let movements = [...this.data.entries, ...this.data.dispatches, ...this.data.adjustments];
+            if (startDate && endDate) {
+                movements = movements.filter(movement => {
+                    const movementDate = new Date(movement.date);
+                    const start = new Date(startDate);
+                    const end = new Date(endDate);
+                    return movementDate >= start && movementDate <= end;
+                });
+            }
+            totalMovements = movements.length;
+            break;
+            
+        case 'low-stock':
+            const lowStockProducts = this.data.products.filter(product => product.stock <= 10);
+            totalProducts = lowStockProducts.length;
+            totalValue = lowStockProducts.reduce((sum, product) => sum + (product.stock * product.cost), 0);
+            totalMovements = 0; // No aplica para este reporte
+            break;
+            
+        default:
+            totalProducts = this.data.products.length;
+            totalValue = this.data.products.reduce((sum, product) => sum + (product.stock * product.cost), 0);
+            totalMovements = this.data.entries.length + this.data.dispatches.length;
     }
+    
+    document.getElementById('report-total-products').textContent = totalProducts;
+    document.getElementById('report-total-value').textContent = `$${totalValue.toFixed(2)}`;
+    document.getElementById('report-total-movements').textContent = totalMovements;
+}
     
     // Exportar reporte a CSV
     exportReport() {
